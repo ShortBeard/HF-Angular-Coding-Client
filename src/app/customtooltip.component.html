@@ -1,0 +1,25 @@
+<div class="custom-tool-tip">
+    <div *ngIf="holidayObject">
+        <strong>Public Holiday:</strong><br>
+        <p>Country: {{holidayObject.holidayCountry}}</p>
+        <p>{{holidayObject.holidayName}}</p>
+        <p>Start: {{holidayObject.startDate}}</p>
+        <p>End: {{holidayObject.endDate}}</p>
+        <strong>Absent:</strong>
+        <div *ngFor="let teamMember of absentTeamMembers">
+            {{teamMember.name}}
+        </div>
+    </div>
+    <div *ngIf="sprintObject">
+        <strong>Sprint</strong><br>
+        <p>{{sprintObject.sprintName}}</p>
+        <p>Start: {{sprintObject.sprintStart}}</p>
+        <p>End: {{sprintObject.sprintEnd}}</p>
+        <strong>Jira IDs:</strong>
+        <div *ngFor="let jira of sprintObject.sprintJiras">
+            {{jira.jiraId}} : {{jira.jiraStoryPoints}} Story Points
+        </div>
+        <p><strong>Total Story Points:</strong> {{sprintObject.sprintStoryTotal}}</p>
+        <p><strong>Average Velocity Previous 3 Sprints:</strong> {{sprintVelocity}}</p>
+    </div>
+</div>
